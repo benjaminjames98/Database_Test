@@ -5,10 +5,12 @@ public class Person {
     private long id;
     private String name;
     private int age;
+    private String address;
 
-    public Person(String name, int age) {
+    public Person(String name, int age, String address) {
         this.name = name;
         this.age = age;
+        this.address = address;
     }
 
     public void setId(long id) {
@@ -35,8 +37,16 @@ public class Person {
         this.age = age;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String name) {
+        this.address = address;
+    }
+
     @Override
     public String toString() {
-        return "Name: " + name + " (" + age + ") has id value: " + id;
+        return "Name: " + name + " (" + age + ") has id value: " + id + " and lives at " + address;
     }
 }

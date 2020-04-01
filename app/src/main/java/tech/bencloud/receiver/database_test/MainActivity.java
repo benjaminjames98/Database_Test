@@ -60,7 +60,15 @@ public class MainActivity extends AppCompatActivity {
         int age = Integer.parseInt(ageString);
 
 
-        dataSource.insert(name, age);
+        EditText addressEditText = findViewById(R.id.addressEditText);
+        String address = addressEditText.getText().toString();
+        if (address.equals("")) {
+            Toast.makeText(this, "Address field cannot be empty!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
+        dataSource.insert(name, age, address);
 
         dataSource.close();
     }
@@ -72,12 +80,12 @@ public class MainActivity extends AppCompatActivity {
         dataSource.deleteAllPeople();
 
         listOfPeople.clear();
-        listOfPeople.add(new Person("Al", 38));
-        listOfPeople.add(new Person("Bob", 22));
-        listOfPeople.add(new Person("Carol", 55));
+        listOfPeople.add(new Person("Al", 38, "67 Bradshaw St"));
+        listOfPeople.add(new Person("Bob", 22, "The Moon"));
+        listOfPeople.add(new Person("Carol", 55, "21B Baker St"));
 
         for (Person p : listOfPeople)
-            dataSource.insert(p.getName(), p.getAge());
+            dataSource.insert(p.getName(), p.getAge(), p.getAddress());
 
         dataSource.close();
     }

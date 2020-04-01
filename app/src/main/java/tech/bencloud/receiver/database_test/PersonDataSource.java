@@ -20,7 +20,8 @@ public class PersonDataSource {
     private static final String[] allColumns = {
             PersonSQLiteOpenHelper.COLUMN_ID,
             PersonSQLiteOpenHelper.COLUMN_NAME,
-            PersonSQLiteOpenHelper.COLUMN_AGE
+            PersonSQLiteOpenHelper.COLUMN_AGE,
+            PersonSQLiteOpenHelper.COLUMN_ADDRESS
     };
 
     public PersonDataSource(Context context) {
@@ -39,10 +40,11 @@ public class PersonDataSource {
         database.close();
     }
 
-    public void insert(String name, int age) {
+    public void insert(String name, int age, String address) {
         ContentValues values = new ContentValues();
         values.put(PersonSQLiteOpenHelper.COLUMN_NAME, name);
         values.put(PersonSQLiteOpenHelper.COLUMN_AGE, age);
+        values.put(PersonSQLiteOpenHelper.COLUMN_ADDRESS, address);
 
         long insertId = database.insert(PersonSQLiteOpenHelper.TABLE_PEOPLE, null, values);
 
@@ -63,7 +65,9 @@ public class PersonDataSource {
 
     private Person cursorToPerson(Cursor cursor) {
         Person p = new Person(cursor.getString(1), // Field 1 is the name
-                Integer.parseInt(cursor.getString(2))); // Field 2 is the age
+                Integer.parseInt(cursor.getString(2)), // Field 2 is the age
+                        cursor.getString(3) // Field 3 is the address
+                );
 
         p.setId(cursor.getLong(0));
 

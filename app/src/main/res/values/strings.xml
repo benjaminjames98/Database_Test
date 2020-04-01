@@ -6,6 +6,7 @@
     <string name="insertDefaultRecordsButtonText">Insert Default Records</string>
     <string name="listAllRecordsButtonText">List All Records</string>
     <string name="deleteAllRecordsButtonText">Delete All Records</string>
+    <string name="addressTextString">Address</string>
 </resources>
 
 

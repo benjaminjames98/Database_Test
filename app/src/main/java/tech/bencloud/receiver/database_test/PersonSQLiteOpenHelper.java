@@ -10,18 +10,20 @@ public class PersonSQLiteOpenHelper extends SQLiteOpenHelper {
     private static final String TAG = "PersonSQLiteOpenHelper";
 
     private static final String DATABASE_NAME = "people.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     public static final String TABLE_PEOPLE = "people";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_AGE = "age";
+    public static final String COLUMN_ADDRESS = "address";
 
     private static final String DATABASE_CREATE = "create table "
             + TABLE_PEOPLE + "("
             + COLUMN_ID + " integer primary key autoincrement, "
             + COLUMN_NAME + " text not null, "
-            + COLUMN_AGE + " text not null);";
+            + COLUMN_AGE + " text not null, "
+            + COLUMN_ADDRESS + " text not null);";
 
     public PersonSQLiteOpenHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
