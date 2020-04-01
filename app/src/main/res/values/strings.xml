@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Database_Test</string>
+    <string name="nameTextView">Name</string>
+    <string name="ageTextView">Age</string>
+    <string name="insertRecordButtonText">Insert Record</string>
+    <string name="insertDefaultRecordsButtonText">Insert Default Records</string>
+    <string name="listAllRecordsButtonText">List All Records</string>
+    <string name="deleteAllRecordsButtonText">Delete All Records</string>
+</resources>
+
+
